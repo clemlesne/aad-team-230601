@@ -1,9 +1,11 @@
 # Game Bot
-Here's how you build the bot manually. 
+
+Here's how you build the bot manually.
 Feel free to adjust the code - after all it's your bot!
-You can also use the GitHub action in the .github/workflows folder to build and push the bot.    
+You can also use the GitHub action in the .github/workflows folder to build and push the bot.
 
 ### Build using an azure container registry with the name myveryownregistry
+
 ```
 az acr build --image gamebot:latest --registry myveryownregistry --file Dockerfile .
 ```
@@ -11,6 +13,7 @@ az acr build --image gamebot:latest --registry myveryownregistry --file Dockerfi
 ### Sample Requests
 
 #### First Request, Turn 1
+
 ```
 POST http://localhost:8080/pick HTTP/1.1
 content-type: application/json
@@ -28,7 +31,9 @@ content-type: application/json
 ```
 
 #### Second Request, Turn 2
+
 Make sure you add MatchId from first request until game is over.
+
 ```
 POST http://localhost:8080/pick HTTP/1.1
 content-type: application/json
