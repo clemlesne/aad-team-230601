@@ -1,5 +1,5 @@
-const health = (req, res) => res.json({status: 'UP'});
+const health = (req, res) => res.json({ status: "UP" });
 
 module.exports = {
-    health,
-}
+  health,
+};

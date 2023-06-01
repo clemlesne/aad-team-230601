@@ -3,16 +3,16 @@ kind: Service
 metadata:
   name: gamebot
   labels:
-    name: gamebot    
+    name: gamebot
 spec:
   selector:
-    name: gamebot    
+    name: gamebot
   type: LoadBalancer
   ports:
-   - port: 80
-     name: gamebot
-     targetPort: 8080
-     protocol: TCP
+    - port: 80
+      name: gamebot
+      targetPort: 8080
+      protocol: TCP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -22,29 +22,29 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: gamebot      
+      name: gamebot
   minReadySeconds: 5
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        name: gamebot        
+        name: gamebot
     spec:
       # imagePullSecrets:
       #   - name: teamregistry
       containers:
-      - name: gamebot
-        image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 8080
-            name: gamebot         
-            protocol: TCP
-        env: 
-          - name: "PORT"
-            value: "8080"
-          - name: "PICK_STRATEGY"
-            value: "RANDOM"
-#          - name: "APPINSIGHTS_INSTRUMENTATIONKEY"
-#            value: "00000000-0000-0000-0000-000000000000"            
+        - name: gamebot
+          image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: gamebot
+              protocol: TCP
+          env:
+            - name: "PORT"
+              value: "8080"
+            - name: "PICK_STRATEGY"
+              value: "RANDOM"
+            # - name: "APPINSIGHTS_INSTRUMENTATIONKEY"
+            #   value: "00000000-0000-0000-0000-000000000000"
