@@ -28,7 +28,6 @@ resource "null_resource" "acr-import" {
   depends_on = [azurerm_container_registry.aksacr]
 }
 
-
 output "REGISTRY_URL" {
   value = azurerm_container_registry.aksacr.login_server
 }

@@ -7,7 +7,6 @@ CREATE TABLE [dbo].[MatchCache] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-
 GO
 CREATE NONCLUSTERED INDEX [Index_ExpiresAtTime]
     ON [dbo].[MatchCache]([ExpiresAtTime] ASC);
