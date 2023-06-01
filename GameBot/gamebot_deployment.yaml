@@ -35,7 +35,7 @@ spec:
       #   - name: teamregistry
       containers:
         - name: gamebot
-          image: ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest
+          image: ghcr.io/clemlesne/aad-coach/gamebot:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

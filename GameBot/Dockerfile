@@ -1,4 +1,4 @@
-FROM ghcr.io/azure-adventure-day/azure-adventure-day-coach/node:8.2.0-alpine
+FROM ghcr.io/clemlesne/aad-coach/node:8.2.0-alpine
 
 # copy sources
 RUN mkdir -p /usr/src/app

@@ -154,7 +154,7 @@ To enable it, you need to:
 
 ## Optional: Build and push a new GameBot
 
-You can deploy directly from ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest without an additional build.
+You can deploy directly from `ghcr.io/clemlesne/aad-coach/gamebot:latest` without an additional build.
 
 But if you change the source code, you can build and push the container manually or use a prepared github action (check the [.github/workflows](.github/workflows) folder).
 

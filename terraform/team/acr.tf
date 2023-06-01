@@ -23,7 +23,7 @@ resource "azurerm_container_registry" "aksacr" {
 
 resource "null_resource" "acr-import" {
   provisioner "local-exec" {
-    command = "az acr import -n ${azurerm_container_registry.aksacr.name} --source ghcr.io/azure-adventure-day/azure-adventure-day-coach/gamebot:latest -t gamebot:latest"
+    command = "az acr import -n ${azurerm_container_registry.aksacr.name} --source ghcr.io/clemlesne/aad-coach/gamebot:latest -t gamebot:latest"
   }
   depends_on = [azurerm_container_registry.aksacr]
 }
