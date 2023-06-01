@@ -1,6 +1,5 @@
 data "azurerm_kubernetes_service_versions" "current" {
   location = var.location
-  version_prefix = var.kubernetes_version_prefix
 }
 
 # https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html
@@ -13,7 +12,7 @@ resource "azurerm_kubernetes_cluster" "akstf" {
   node_resource_group = "${azurerm_resource_group.aksrg.name}_nodes_${azurerm_resource_group.aksrg.location}"
 
   default_node_pool {
-    name               = "default"    
+    name               = "default"
     node_count         = 1
     vm_size            = var.vm_size
     os_disk_size_gb    = 120
@@ -51,7 +50,7 @@ resource "azurerm_kubernetes_cluster" "akstf" {
   #   # client_id     = var.aks_client_id
   #   # client_secret = var.aks_client_secret
   # }
-  
+
   oms_agent {
     log_analytics_workspace_id = azurerm_log_analytics_workspace.akslogs.id
   }

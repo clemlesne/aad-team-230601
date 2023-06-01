@@ -1,9 +1,4 @@
-# Hint:
-# Create Azure Credentials like this: https://github.com/Azure/aks-set-context/tree/releases/v1#azure-credentials
-# Store the creds in a github secret (described in link above)
-# modify the code below to reference your container registry
-# this action is currently deactivated. activate it by setting the push trigger correctly
-
+# Hint: Create Azure Credentials (like this: https://github.com/Azure/aks-set-context/tree/releases/v1#azure-credentials). Store the creds in a github secret (described in link above), modify the code below to reference your container registry. This action is currently deactivated. Activate it by setting the push trigger correctly.
 name: Build and Push GameBot
 
 on:
@@ -11,30 +6,31 @@ on:
     # deactivated for now - has to be enabled by team
     branches-ignore:
       - "**"
+    # branches:
+    #   - develop
+    #   - feat/*
+    #   - main
+    # paths:
+    #   - GameBot/**
+    #   - .github/workflows/build-push-gamebot.yml
 
-    #branches: [ master ]
-    #paths:
-    #  - GameBot/**
-    #  - .github/workflows/build-push-gamebot.yml
-
-defaults:
-  run:
-    working-directory: GameBot
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    permissions:
+      # Allow to read from the private repository
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # login to Azure
+      # Login to Azure
       - name: Login to Azure
         uses: azure/login@v1.1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # build the docker image
-      - name: build and push
+      # Build the docker image
+      - name: Build and push
         run: |
-          az acr build --image "gamebot:latest" --registry myContainerRegistry --file Dockerfile .
+          az acr build --image "gamebot:latest" --registry myContainerRegistry --file Dockerfile GameBot
