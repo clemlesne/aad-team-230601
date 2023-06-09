@@ -48,18 +48,12 @@ git clone https://github.com/azure-adventure-day/aad-team.git
 
 Deploy them using the following command.
 
-Make the file executable first. Make sure you run this in the right directory.
-
-```bash
-chmod +x deploy-team.sh
-```
-
 Pick a name for your team. The name will be reflected in your Azure resources, no other team sees it.
 
 Avoid special characters and keep it short (6 chars max).
 
 ```bash
-sh deploy-team.sh [team_name] westeurope
+bash deploy-team.sh [team_name] westeurope
 ```
 
 > Hint: This will take some minutes - take the time to look into the Terraform scripts, Kubernetes YAML files and provided source code from World Game Federation.
