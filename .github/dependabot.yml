@@ -5,3 +5,13 @@ updates:
     target-branch: develop
     schedule:
       interval: daily
+  - package-ecosystem: terraform
+    directory: terraform/team
+    target-branch: develop
+    schedule:
+      interval: daily
+  - package-ecosystem: npm
+    directory: GameBot
+    target-branch: develop
+    schedule:
+      interval: daily
